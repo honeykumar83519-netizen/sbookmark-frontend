@@ -1,7 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { Link, Comment, User, UserProfile, LinkSortType, BlogPost } from '../types';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+import { API_URL } from '../config';
+
+const API_BASE_URL = API_URL;
 
 export const apiSlice = createApi({
     reducerPath: 'api',

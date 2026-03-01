@@ -42,7 +42,7 @@ export default function Login() {
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 px-4 py-8">
             <div className="card max-w-md w-full p-6 sm:p-8">
                 <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2">Welcome Back</h1>
-                <p className="text-gray-600 text-center mb-6 text-sm sm:text-base">Login to LinkHive</p>
+                <p className="text-gray-600 text-center mb-6 text-sm sm:text-base">Login to SBookmark</p>
 
                 {error && (
                     <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4 text-sm">

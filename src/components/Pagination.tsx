@@ -57,26 +57,26 @@ export default function Pagination({
     const endItem = Math.min(currentPage * (itemsPerPage || 10), totalItems || 0);
 
     return (
-        <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200 bg-white">
+        <div className="flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 py-4 gap-4 border-t border-gray-200 bg-white">
             {/* Items info */}
             {totalItems !== undefined && itemsPerPage !== undefined && (
-                <div className="text-sm text-gray-700">
-                    Showing <span className="font-medium">{startItem}</span> to{' '}
-                    <span className="font-medium">{endItem}</span> of{' '}
-                    <span className="font-medium">{totalItems}</span> results
+                <div className="text-xs sm:text-sm text-gray-700 font-medium">
+                    Showing <span className="text-primary-600">{startItem}</span> to{' '}
+                    <span className="text-primary-600">{endItem}</span> of{' '}
+                    <span className="text-primary-600">{totalItems}</span> results
                 </div>
             )}
 
             {/* Page navigation */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
                 {/* Previous button */}
                 <button
                     onClick={() => onPageChange(currentPage - 1)}
                     disabled={currentPage === 1}
-                    className="p-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="p-1.5 sm:p-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                     aria-label="Previous page"
                 >
-                    <ChevronLeft size={20} />
+                    <ChevronLeft size={18} />
                 </button>
 
                 {/* Page numbers */}
@@ -86,7 +86,7 @@ export default function Pagination({
                             return (
                                 <span
                                     key={`ellipsis-${index}`}
-                                    className="px-3 py-2 text-gray-500"
+                                    className="px-1.5 sm:px-3 py-1.5 sm:py-2 text-gray-400 text-xs sm:text-sm"
                                 >
                                     ...
                                 </span>
@@ -97,9 +97,9 @@ export default function Pagination({
                             <button
                                 key={page}
                                 onClick={() => onPageChange(page as number)}
-                                className={`min-w-[40px] px-3 py-2 rounded-lg font-medium transition-colors ${currentPage === page
-                                        ? 'bg-primary-600 text-white'
-                                        : 'text-gray-700 hover:bg-gray-100'
+                                className={`min-w-[32px] sm:min-w-[40px] px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold transition-all ${currentPage === page
+                                    ? 'bg-primary-600 text-white shadow-md shadow-primary-500/30'
+                                    : 'text-gray-600 hover:bg-gray-100'
                                     }`}
                             >
                                 {page}
@@ -112,12 +112,13 @@ export default function Pagination({
                 <button
                     onClick={() => onPageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
-                    className="p-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="p-1.5 sm:p-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                     aria-label="Next page"
                 >
-                    <ChevronRight size={20} />
+                    <ChevronRight size={18} />
                 </button>
             </div>
         </div>
+
     );
 }

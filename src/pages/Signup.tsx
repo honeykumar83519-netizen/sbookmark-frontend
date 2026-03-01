@@ -47,7 +47,7 @@ export default function Signup() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 px-4 py-8">
             <div className="card max-w-md w-full p-6 sm:p-8">
-                <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2">Join LinkHive</h1>
+                <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2">Join SBookmark</h1>
                 <p className="text-gray-600 text-center mb-6 text-sm sm:text-base">Create your account</p>
 
                 {error && (

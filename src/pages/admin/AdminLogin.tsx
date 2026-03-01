@@ -52,8 +52,8 @@ export default function AdminLogin() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-900 px-4 py-8">
             <div className="card max-w-md w-full p-6 sm:p-8 bg-white rounded-xl shadow-2xl">
-                <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2 text-gray-800">Admin Portal</h1>
-                <p className="text-gray-500 text-center mb-6 text-sm sm:text-base">Secure Login Area</p>
+                <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2 text-gray-800 tracking-tight">Admin Portal</h1>
+                <p className="text-gray-500 text-center mb-6 text-sm">Secure Login Area</p>
 
                 {error && (
                     <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4 text-sm">
@@ -63,13 +63,13 @@ export default function AdminLogin() {
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-semibold text-gray-700 mb-1">
                             Admin Email
                         </label>
                         <input
                             type="email"
                             {...register('email', { required: 'Email is required' })}
-                            className="input w-full p-2 border rounded-md"
+                            className="input w-full p-2.5 border rounded-lg"
                             placeholder="admin@sbookmark.link"
                         />
                         {errors.email && (
@@ -78,13 +78,13 @@ export default function AdminLogin() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-semibold text-gray-700 mb-1">
                             Password
                         </label>
                         <input
                             type="password"
                             {...register('password', { required: 'Password is required' })}
-                            className="input w-full p-2 border rounded-md"
+                            className="input w-full p-2.5 border rounded-lg"
                             placeholder="••••••••"
                         />
                         {errors.password && (
@@ -95,12 +95,22 @@ export default function AdminLogin() {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full bg-gray-900 text-white font-bold py-2.5 rounded-lg hover:bg-gray-800 transition-colors"
+                        className="w-full bg-gray-900 text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition-colors shadow-lg"
                     >
                         {isLoading ? 'Verifying...' : 'Access Dashboard'}
                     </button>
                 </form>
+
+                <div className="mt-6 text-center">
+                    <button
+                        onClick={() => navigate('/')}
+                        className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                    >
+                        &larr; Back to main site
+                    </button>
+                </div>
             </div>
         </div>
+
     );
 }

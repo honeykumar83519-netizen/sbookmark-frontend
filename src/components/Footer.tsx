@@ -15,7 +15,7 @@ export default function Footer() {
                         <Link to="/" className="inline-block">
                             <img
                                 src="/logo3.png"
-                                alt="LinkHive Logo"
+                                alt="SBookmark Logo"
                                 className="h-10 sm:h-12 md:h-14 lg:h-[60px] w-auto object-contain"
                             />
                         </Link>

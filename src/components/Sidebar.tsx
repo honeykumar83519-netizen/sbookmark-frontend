@@ -16,66 +16,71 @@ export default function Sidebar() {
     return (
         <aside className="space-y-8">
             {/* Latest Blogs Widget */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2 border-b border-gray-100 pb-3">
-                    <FileText size={20} className="text-primary-600" />
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-black text-gray-900 mb-6 flex items-center gap-3 border-b border-gray-50 pb-4">
+                    <div className="p-1.5 bg-primary-50 rounded-lg text-primary-600">
+                        <FileText size={20} />
+                    </div>
                     Latest Articles
                 </h3>
 
                 {isLoading ? (
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         {[1, 2, 3].map(i => (
-                            <div key={i} className="animate-pulse flex gap-3">
-                                <div className="w-16 h-16 bg-gray-200 rounded-md"></div>
-                                <div className="flex-1 space-y-2">
-                                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                                    <div className="h-3 bg-gray-200 rounded w-1/2"></div>
+                            <div key={i} className="animate-pulse flex gap-4">
+                                <div className="w-16 h-16 bg-gray-100 rounded-xl"></div>
+                                <div className="flex-1 space-y-3 py-1">
+                                    <div className="h-4 bg-gray-100 rounded w-full"></div>
+                                    <div className="h-4 bg-gray-100 rounded w-2/3"></div>
                                 </div>
                             </div>
                         ))}
                     </div>
                 ) : (
-                    <div className="space-y-5">
+                    <div className="space-y-6">
                         {latestBlogs.length > 0 ? (
                             latestBlogs.map(blog => (
-                                <Link to={`/blog/${blog._id}`} key={blog._id} className="group flex gap-3 items-start">
-                                    <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden bg-gray-100">
+                                <Link to={`/blog/${blog._id}`} key={blog._id} className="group flex gap-4 items-start focus:outline-none">
+                                    <div className="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-gray-100 ring-1 ring-gray-100 group-hover:ring-primary-100 transition-all shadow-sm">
                                         <img
                                             src={blog.image.startsWith('/uploads/')
                                                 ? `${BACKEND_URL}${blog.image}`
                                                 : blog.image
                                             }
                                             alt={blog.title}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
                                     </div>
-                                    <div className="flex-1 min-w-0">
-                                        <h4 className="text-sm font-semibold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2 mb-1">
+                                    <div className="flex-1 min-w-0 pt-0.5">
+                                        <h4 className="text-sm font-bold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2 leading-snug mb-2">
                                             {blog.title}
                                         </h4>
-                                        <p className="text-xs text-gray-500">
-                                            {new Date(blog.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
-                                        </p>
+                                        <div className="flex items-center text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+                                            {new Date(blog.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                                        </div>
                                     </div>
                                 </Link>
                             ))
                         ) : (
-                            <p className="text-sm text-gray-500">No blogs posted yet.</p>
+                            <p className="text-sm text-gray-400 py-4 text-center font-medium">No articles yet.</p>
                         )}
                     </div>
                 )}
 
-                <div className="mt-5 pt-4 border-t border-gray-100 text-center">
-                    <Link to="/blog" className="text-sm font-semibold text-primary-600 hover:text-primary-700 flex items-center justify-center gap-1">
-                        View All Posts <ChevronRight size={16} />
+                <div className="mt-8 pt-6 border-t border-gray-50">
+                    <Link to="/blog" className="text-sm font-black text-primary-600 hover:text-primary-700 flex items-center justify-center gap-2 group transition-all">
+                        <span>VIEW ALL ARTICLES</span>
+                        <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </div>
             </div>
 
             {/* Tags Widget */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2 border-b border-gray-100 pb-3">
-                    <Hash size={20} className="text-primary-600" />
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-black text-gray-900 mb-6 flex items-center gap-3 border-b border-gray-50 pb-4">
+                    <div className="p-1.5 bg-primary-50 rounded-lg text-primary-600">
+                        <Hash size={20} />
+                    </div>
                     Popular Tags
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -83,13 +88,14 @@ export default function Sidebar() {
                         <Link
                             key={tag}
                             to={`/blog?tag=${tag}`}
-                            className="text-xs font-medium px-3 py-1.5 bg-gray-50 text-gray-600 rounded-full border border-gray-100 hover:bg-primary-50 hover:text-primary-600 hover:border-primary-100 transition-all"
+                            className="text-[11px] font-black uppercase tracking-widest px-4 py-2 bg-gray-50 text-gray-500 rounded-xl hover:bg-primary-600 hover:text-white hover:shadow-lg hover:shadow-primary-500/30 transition-all border border-transparent"
                         >
                             #{tag}
                         </Link>
                     ))}
                 </div>
             </div>
+
         </aside>
     );
 }

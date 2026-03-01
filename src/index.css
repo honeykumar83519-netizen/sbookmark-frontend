@@ -5,6 +5,17 @@
 @layer base {
   body {
     @apply bg-gray-50 text-gray-900 antialiased;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Prevent images/tables in rich text from overflowing */
+  img, table, pre, iframe, video {
+    max-width: 100%;
+  }
+
+  pre {
+    overflow-x: auto;
   }
 }
 

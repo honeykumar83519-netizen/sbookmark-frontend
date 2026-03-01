@@ -1,8 +1,10 @@
 import { Cookie, Settings, BarChart } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function CookiePolicy() {
     return (
         <div className="min-h-screen bg-gray-50 py-12">
+            <SEO title="Cookie Policy" description="Cookie Policy for the SBookmark platform." />
             <div className="max-w-3xl mx-auto px-4 sm:px-6">
 
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 sm:p-10">

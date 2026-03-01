@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { HelpCircle, Plus, Minus } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const FAQS = [
     {
@@ -37,6 +38,7 @@ export default function Faq() {
 
     return (
         <div className="min-h-screen bg-gray-50 py-12">
+            <SEO title="FAQ" description="Frequently asked questions about SBookmark." />
             <div className="max-w-3xl mx-auto px-4 sm:px-6">
 
                 {/* Header */}

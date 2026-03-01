@@ -5,6 +5,7 @@ import { useCreateLinkMutation, useFetchLinkPreviewMutation } from '../store/api
 import { useAppSelector } from '../hooks/reduxHooks';
 import type { CategoryType } from '../types';
 import { Loader } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const CATEGORIES: CategoryType[] = [
     'Technology',
@@ -101,6 +102,7 @@ export default function SubmitLink() {
 
     return (
         <div className="min-h-screen bg-gray-50 py-4 sm:py-8">
+            <SEO title="Submit a Link" description="Submit a new link to SBookmark." />
             <div className="max-w-3xl mx-auto px-3 sm:px-4">
                 <div className="card p-4 sm:p-6 md:p-8">
                     <h1 className="text-2xl sm:text-3xl font-bold mb-2">Submit a Link</h1>

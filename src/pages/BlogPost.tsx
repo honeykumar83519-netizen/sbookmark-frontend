@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Clock } from 'lucide-react';
 import { useGetBlogByIdQuery, useGetBlogsQuery } from '../store/apiSlice';
 import { BACKEND_URL } from '../config';
+import SEO from '../components/SEO';
 
 export default function BlogPost() {
     const { id } = useParams();
@@ -44,6 +45,7 @@ export default function BlogPost() {
     return (
 
         <div className="min-h-screen bg-white pb-16 md:pb-24 font-sans selection:bg-primary-100 selection:text-primary-900">
+            <SEO title={post.title} description={post.excerpt || post.title} />
             {/* Top Navigation / Back Button */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-6 md:pt-8 pb-4">
                 <button
@@ -143,7 +145,7 @@ export default function BlogPost() {
                             {relatedPosts.map((relatedPost) => (
                                 <Link
                                     key={relatedPost._id}
-                                    to={`/blog/${relatedPost._id}`}
+                                    to={`/blog/${relatedPost.slug || relatedPost._id}`}
                                     className="group"
                                 >
                                     <div className="aspect-video overflow-hidden rounded-lg mb-4">

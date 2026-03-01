@@ -1,8 +1,10 @@
 import { AlertOctagon, AlertCircle } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Disclaimer() {
     return (
         <div className="min-h-screen bg-gray-50 py-12">
+            <SEO title="Disclaimer" description="General disclaimer for the SBookmark platform." />
             <div className="max-w-3xl mx-auto px-4 sm:px-6">
 
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 sm:p-10 text-center">

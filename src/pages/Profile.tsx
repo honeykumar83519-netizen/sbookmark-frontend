@@ -7,6 +7,7 @@ import Pagination from '../components/Pagination';
 import EditProfileModal from '../components/EditProfileModal';
 import { useAppSelector } from '../hooks/reduxHooks';
 import { BACKEND_URL } from '../config';
+import SEO from '../components/SEO';
 
 export default function Profile() {
     const { id } = useParams<{ id: string }>();
@@ -33,6 +34,7 @@ export default function Profile() {
 
     return (
         <div className="min-h-screen bg-gray-50 py-8">
+            <SEO title={`${user.username}'s Profile`} description={`Profile page for ${user.username} on SBookmark.`} />
             <div className="max-w-5xl mx-auto px-4">
                 <div className="card mb-6 sm:mb-8 p-4 sm:p-6 md:p-8">
                     <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 text-center sm:text-left">

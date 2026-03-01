@@ -77,6 +77,7 @@ export interface BlogPost {
     image: string;
     category: string;
     tags: string[];
+    slug?: string;
     createdAt: string;
     updatedAt: string;
 }

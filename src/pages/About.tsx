@@ -1,8 +1,10 @@
 import { Info, Target, Users } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function About() {
     return (
         <div className="min-h-screen bg-gray-50 py-12">
+            <SEO title="About Us" description="Learn about SBookmark, a modern platform for saving and organizing web content." />
             <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
                 {/* Header Section */}

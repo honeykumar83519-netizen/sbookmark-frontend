@@ -7,6 +7,7 @@ import ConfirmModal from '../../components/ConfirmModal';
 import Pagination from '../../components/Pagination';
 import type { User } from '../../types';
 import { BACKEND_URL } from '../../config';
+import SEO from '../../components/SEO';
 
 export default function AdminDashboard() {
     const navigate = useNavigate();
@@ -132,6 +133,7 @@ export default function AdminDashboard() {
 
     return (
         <>
+            <SEO title="Admin Dashboard" description="Admin dashboard for managing SBookmark." />
             <AdminNavbar />
             {/* Notification Toast */}
             {notification.show && (
@@ -257,8 +259,10 @@ export default function AdminDashboard() {
                                         <option value="technology">Technology</option>
                                         <option value="design">Design</option>
                                         <option value="business">Business</option>
-                                        <option value="marketing">Marketing</option>
-                                        <option value="productivity">Productivity</option>
+                                        <option value="science">Science</option>
+                                        <option value="entertainment">Entertainment</option>
+                                        <option value="health">Health</option>
+                                        <option value="education">Education</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </>

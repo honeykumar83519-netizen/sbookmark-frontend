@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useSignupMutation } from '../store/apiSlice';
 import { useAppDispatch } from '../hooks/reduxHooks';
 import { setCredentials } from '../store/authSlice';
+import SEO from '../components/SEO';
 
 interface SignupForm {
     username: string;
@@ -46,6 +47,7 @@ export default function Signup() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 px-4 py-8">
+            <SEO title="Sign Up" description="Create an account on SBookmark." />
             <div className="card max-w-md w-full p-6 sm:p-8">
                 <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2">Join SBookmark</h1>
                 <p className="text-gray-600 text-center mb-6 text-sm sm:text-base">Create your account</p>

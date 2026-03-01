@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAdminLoginMutation } from '../../store/apiSlice';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setCredentials, logout } from '../../store/authSlice';
+import SEO from '../../components/SEO';
 
 interface LoginForm {
     email: string;
@@ -51,6 +52,7 @@ export default function AdminLogin() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-900 px-4 py-8">
+            <SEO title="Admin Login" description="Admin login for SBookmark platform." />
             <div className="card max-w-md w-full p-6 sm:p-8 bg-white rounded-xl shadow-2xl">
                 <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2 text-gray-800 tracking-tight">Admin Portal</h1>
                 <p className="text-gray-500 text-center mb-6 text-sm">Secure Login Area</p>

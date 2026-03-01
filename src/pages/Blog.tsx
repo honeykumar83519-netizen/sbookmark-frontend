@@ -5,6 +5,7 @@ import { useGetBlogsQuery } from '../store/apiSlice';
 import Sidebar from '../components/Sidebar';
 import Pagination from '../components/Pagination';
 import { BACKEND_URL } from '../config';
+import SEO from '../components/SEO';
 
 export default function Blog() {
     const navigate = useNavigate();
@@ -19,6 +20,7 @@ export default function Blog() {
 
     return (
         <div className="min-h-screen bg-gray-50 py-8 md:py-12">
+            <SEO title="Blog" description="Read the latest articles and stories from SBookmark." />
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Main Content */}
@@ -68,7 +70,7 @@ export default function Blog() {
                                         </div>
 
                                         <h2
-                                            onClick={() => navigate(`/blog/${post._id}`)}
+                                            onClick={() => navigate(`/blog/${post.slug || post._id}`)}
                                             className="text-lg sm:text-xl font-bold text-gray-900 mb-3 line-clamp-2 hover:text-primary-600 transition-colors cursor-pointer"
                                         >
                                             {post.title}
@@ -79,7 +81,7 @@ export default function Blog() {
                                         </p>
 
                                         <button
-                                            onClick={() => navigate(`/blog/${post._id}`)}
+                                            onClick={() => navigate(`/blog/${post.slug || post._id}`)}
                                             className="text-primary-600 text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all mt-auto w-fit"
                                         >
                                             Read More <ArrowRight size={16} />

@@ -5,6 +5,7 @@ import { useToggleUpvoteMutation } from '../store/apiSlice';
 import { useAppSelector } from '../hooks/reduxHooks';
 import { formatDistanceToNow } from '../utils/dateUtils';
 import { useState } from 'react';
+import SEO from '../components/SEO';
 
 export default function LinkDetail() {
     const { id } = useParams<{ id: string }>();
@@ -63,6 +64,7 @@ export default function LinkDetail() {
 
     return (
         <div className="min-h-screen bg-gray-50 py-4 sm:py-8">
+            <SEO title={link.title} description={link.description || link.title} />
             <div className="max-w-4xl mx-auto px-3 sm:px-4">
                 {/* Main Link Card - Matching Homepage Design */}
                 <div className="card hover:shadow-lg transition-all overflow-hidden mb-6 sm:mb-8">

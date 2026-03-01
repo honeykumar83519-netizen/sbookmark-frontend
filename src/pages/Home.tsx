@@ -5,6 +5,7 @@ import Sidebar from '../components/Sidebar';
 import Pagination from '../components/Pagination';
 import { Loader, ChevronDown, Check } from 'lucide-react';
 import type { LinkSortType, CategoryType } from '../types';
+import SEO from '../components/SEO';
 
 const CATEGORIES: CategoryType[] = [
     'Technology',
@@ -37,6 +38,7 @@ export default function Home() {
 
     return (
         <div className="bg-gray-50 min-h-screen">
+            <SEO title="Home" description="Discover & Share Links - Community-curated collection of the best links on the web." />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Main Content */}

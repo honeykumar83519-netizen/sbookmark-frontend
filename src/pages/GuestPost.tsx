@@ -1,8 +1,10 @@
 import { PenTool, CheckCircle, Mail, AlertCircle, FileText, Send } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function GuestPost() {
     return (
         <div className="min-h-screen bg-gray-50 py-12">
+            <SEO title="Guest Post Contribution" description="Guidelines and information on submitting a guest post to SBookmark." />
             <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
                 {/* Header Section */}

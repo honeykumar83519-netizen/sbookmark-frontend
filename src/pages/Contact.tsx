@@ -1,8 +1,10 @@
 import { Mail, Globe, MessageSquare } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Contact() {
     return (
         <div className="min-h-screen bg-gray-50 py-12">
+            <SEO title="Contact Us" description="Get in touch with the SBookmark team." />
             <div className="max-w-3xl mx-auto px-4 sm:px-6">
 
                 <div className="text-center mb-10">

@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useLoginMutation } from '../store/apiSlice';
 import { useAppDispatch } from '../hooks/reduxHooks';
 import { setCredentials } from '../store/authSlice';
+import SEO from '../components/SEO';
 
 interface LoginForm {
     email: string;
@@ -40,6 +41,7 @@ export default function Login() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 px-4 py-8">
+            <SEO title="Login" description="Login to your SBookmark account." />
             <div className="card max-w-md w-full p-6 sm:p-8">
                 <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2">Welcome Back</h1>
                 <p className="text-gray-600 text-center mb-6 text-sm sm:text-base">Login to SBookmark</p>

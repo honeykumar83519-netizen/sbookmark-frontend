@@ -40,7 +40,7 @@ export default function Sidebar() {
                     <div className="space-y-6">
                         {latestBlogs.length > 0 ? (
                             latestBlogs.map(blog => (
-                                <Link to={`/blog/${blog._id}`} key={blog._id} className="group flex gap-4 items-start focus:outline-none">
+                                <Link to={`/blog/${blog.slug || blog._id}`} key={blog._id} className="group flex gap-4 items-start focus:outline-none">
                                     <div className="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-gray-100 ring-1 ring-gray-100 group-hover:ring-primary-100 transition-all shadow-sm">
                                         <img
                                             src={blog.image.startsWith('/uploads/')

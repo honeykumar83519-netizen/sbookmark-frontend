@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCreateBlogMutation } from '../../store/apiSlice';
 import { ArrowLeft } from 'lucide-react';
 import AdminNavbar from '../../components/AdminNavbar';
+import SEO from '../../components/SEO';
 interface BlogForm {
     title: string;
     excerpt: string;
@@ -66,8 +67,19 @@ export default function CreateBlog() {
         }
     };
 
+    const modules = {
+        toolbar: [
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+            ['link', 'image'],
+            ['clean']
+        ]
+    };
+
     return (
         <>
+            <SEO title="Create Blog Post" description="Create a new blog post for SBookmark." />
             <AdminNavbar />
             <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
                 <div className="max-w-4xl mx-auto">
@@ -129,6 +141,7 @@ export default function CreateBlog() {
                                                 theme="snow"
                                                 value={field.value || ''}
                                                 onChange={field.onChange}
+                                                modules={modules}
                                                 className="h-[300px] mb-12 sm:mb-10"
                                                 placeholder="Start writing your masterpiece..."
                                             />
@@ -216,8 +229,10 @@ export default function CreateBlog() {
                                         <option value="technology">Technology</option>
                                         <option value="design">Design</option>
                                         <option value="business">Business</option>
-                                        <option value="marketing">Marketing</option>
-                                        <option value="productivity">Productivity</option>
+                                        <option value="science">Science</option>
+                                        <option value="entertainment">Entertainment</option>
+                                        <option value="health">Health</option>
+                                        <option value="education">Education</option>
                                         <option value="other">Other</option>
                                     </select>
                                     {errors.category && (

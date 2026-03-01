@@ -1,8 +1,10 @@
 import { ShieldCheck, Lock, Eye, Server } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Privacy() {
     return (
         <div className="min-h-screen bg-gray-50 py-12">
+            <SEO title="Privacy Policy" description="Privacy Policy detailing how SBookmark collects and uses your data." />
             <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
                 {/* Header */}

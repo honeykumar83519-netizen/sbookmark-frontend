@@ -264,6 +264,14 @@ export const apiSlice = createApi({
             }),
             invalidatesTags: ['Blog'],
         }),
+        updateBlog: builder.mutation<BlogPost, { id: string; formData: FormData }>({
+            query: ({ id, formData }) => ({
+                url: `/blogs/${id}`,
+                method: 'PUT',
+                body: formData,
+            }),
+            invalidatesTags: (_result, _error, { id }) => [{ type: 'Blog', id }, 'Blog'],
+        }),
 
         // Admin User Management endpoints
         getAllUsers: builder.query<
@@ -317,5 +325,6 @@ export const {
     useGetBlogsQuery,
     useGetBlogByIdQuery,
     useCreateBlogMutation,
+    useUpdateBlogMutation,
     useDeleteBlogMutation,
 } = apiSlice;

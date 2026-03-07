@@ -23,6 +23,7 @@ import GuestPost from './pages/GuestPost';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import CreateBlog from './pages/admin/CreateBlog';
+import EditBlog from './pages/admin/EditBlog';
 
 import ScrollToTop from './components/ScrollToTop';
 import PrivateRoute from './components/PrivateRoute';
@@ -63,6 +64,7 @@ function App() {
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
             <Route path="/admin/create-blog" element={<AdminRoute><CreateBlog /></AdminRoute>} />
+            <Route path="/admin/edit-blog/:id" element={<AdminRoute><EditBlog /></AdminRoute>} />
           </Routes>
         </div>
       </BrowserRouter>

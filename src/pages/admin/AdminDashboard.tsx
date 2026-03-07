@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGetBlogsQuery, useDeleteBlogMutation, useGetAllUsersQuery, useToggleUserStatusMutation } from '../../store/apiSlice';
-import { Plus, Trash2, Users, FileText, Search } from 'lucide-react';
+import { Plus, Trash2, Users, FileText, Search, Edit } from 'lucide-react';
 import AdminNavbar from '../../components/AdminNavbar';
 import ConfirmModal from '../../components/ConfirmModal';
 import Pagination from '../../components/Pagination';
@@ -393,7 +393,14 @@ export default function AdminDashboard() {
                                                     <td className="px-6 py-4 text-gray-500 text-sm">
                                                         {new Date(blog.createdAt).toLocaleDateString()}
                                                     </td>
-                                                    <td className="px-6 py-4 text-right">
+                                                    <td className="px-6 py-4 text-right flex justify-end items-center gap-1">
+                                                        <button
+                                                            onClick={() => navigate(`/admin/edit-blog/${blog._id}`)}
+                                                            className="p-2 text-blue-500 hover:bg-blue-50 rounded-lg transition-colors"
+                                                            title="Edit Post"
+                                                        >
+                                                            <Edit size={18} />
+                                                        </button>
                                                         <button
                                                             onClick={() => handleDeleteBlog(blog._id, blog.title)}
                                                             className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
